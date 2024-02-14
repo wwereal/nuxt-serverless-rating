@@ -17,10 +17,11 @@
 <script lang="ts" setup>
 
 const score = ref(0);
-const { data: scoreData, pending } = await useFetch('/rank', {
+const route = useRoute();
+const path = route.path.slice(1);
+const { data: scoreData, pending } = await useFetch(`/rank?path=${path}`, {
   server: false
 });
-
 </script>
 
 <style>
